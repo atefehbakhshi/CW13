@@ -1,0 +1,132 @@
+@font-face {
+  font-family: "IranianSans";
+  src: url("../fonts/irsans.woff");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100vh;
+  font-family: "IranianSans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 56px;
+
+
+}
+
+header {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+
+}
+
+.day {
+  text-align: center;
+  border: 1px solid black;
+  padding: 15px;
+  color: #000000;
+  background: #d5d5d5;
+  width: 100%;
+}
+/* --------------------------- */
+main {
+  margin: 0 48px;
+}
+
+.main-title {
+  margin: 40px 0;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+.main-title span {
+  font-size: 40px;
+}
+.todo-box {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  align-items: center;
+  background-color: #d9d9d9;
+  border-radius: 16px;
+  padding: 12px 24px;
+}
+.todo-text-box {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+.todo-text-box input {
+  margin: 0 24px;
+}
+.action-box {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+.clock {
+  padding: 12px;
+  background-color: white;
+  border-radius: 16px;
+  margin: 0 40px;
+}
+.action-box span {
+  font-size: 30px;
+}
+/*-----------------footer-------------------*/
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+  padding: 20px;
+  background-color: #d9d9d9;
+}
+.add-button {
+  border-radius: 16px;
+  background-color: #19c97f;
+  padding: 16px 60px;
+  color: white;
+  border: none;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 56px;
+  font-family: inherit;
+}
+.inputs {
+  display: flex;
+  width: 75%;
+  justify-content: space-between;
+}
+.inputs input {
+  font-family: "IranianSans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 38px;
+  border-radius: 16px;
+  border: none;
+  padding: 20px;
+}
+
+.user-task {
+  width: 75%;
+  text-align: right;
+}
+.user-time {
+  width: 20%;
+  text-align: center;
+}
+
