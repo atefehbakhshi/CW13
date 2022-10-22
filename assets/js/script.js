@@ -68,6 +68,7 @@ const addBtn = document.querySelector("#add-btn");
 addBtn.onclick = () => {
   const task = document.querySelector("#task").value;
   const time = document.querySelector("#time").value;
+  save(task);
   const newTask = {
     id: Date.now(),
     taskName: task,
@@ -96,6 +97,32 @@ addBtn.onclick = () => {
   showList();
 };
 
-
-
 // localStorage.clear()
+
+// --------------------------loginpage--------------
+const loginBtn = document.querySelector('#login-btn');
+loginBtn.onclick = () => {
+  const name = document.querySelector('#name').value;
+  const family = document.querySelector('#family').value;
+  const phone = document.querySelector('#phone').value;
+  if (name.length === 0 || family.length === 0) {
+    alert('Please enter correct name')
+  } else if (phone[0] != 0 || phone.length !== 11) {
+    alert('Invalid phone number')
+  } else {
+    document.querySelector('.login-container').style.display = 'none'
+  }
+}
+
+// --------------------------savepage--------------
+function save(task) {
+  document.querySelector('#save-text').placeholder = task;
+  document.querySelector('.login-container').style.display = 'flex';
+  document.querySelector('.login').style.display = 'none';
+  document.querySelector('.save').style.display = 'flex';
+  const saveBtn = document.querySelector('#save-btn');
+  saveBtn.onclick = () => {
+    document.querySelector('.login-container').style.display = 'none';
+  }
+}
+
