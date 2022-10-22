@@ -2,6 +2,7 @@
   font-family: "IranianSans";
   src: url("../fonts/irsans.woff");
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -21,12 +22,14 @@
   font-size: 36px;
   line-height: 56px;
 }
+
 .main-page {
   display: flex;
   flex-direction: column;
   height: 100vh;
   width: 100%;
 }
+
 header {
   display: flex;
   flex-direction: row-reverse;
@@ -41,6 +44,7 @@ header {
   background: #d5d5d5;
   width: 100%;
 }
+
 /* --------------------------- */
 main {
   margin: 0 48px;
@@ -53,9 +57,11 @@ main {
   flex-direction: row-reverse;
   align-items: center;
 }
+
 .main-title span {
   font-size: 40px;
 }
+
 .todo-box {
   display: flex;
   justify-content: space-between;
@@ -64,30 +70,37 @@ main {
   background-color: #d9d9d9;
   border-radius: 16px;
   padding: 12px 24px;
+  margin-bottom: 24px;
 }
+
 .todo-text-box {
   display: flex;
   justify-content: space-between;
   flex-direction: row-reverse;
 }
+
 .todo-text-box input {
   margin: 0 24px;
 }
+
 .action-box {
   display: flex;
   justify-content: space-between;
   flex-direction: row-reverse;
   align-items: center;
 }
+
 .clock {
   padding: 12px;
   background-color: white;
   border-radius: 16px;
   margin: 0 40px;
 }
+
 .action-box span {
   font-size: 30px;
 }
+
 /*-----------------footer-------------------*/
 
 footer {
@@ -97,6 +110,7 @@ footer {
   padding: 20px;
   background-color: #d9d9d9;
 }
+
 .add-button {
   border-radius: 16px;
   background-color: #19c97f;
@@ -109,11 +123,13 @@ footer {
   line-height: 56px;
   font-family: inherit;
 }
+
 .inputs {
   display: flex;
   width: 75%;
   justify-content: space-between;
 }
+
 .inputs input {
   font-family: "IranianSans";
   font-style: normal;
@@ -129,6 +145,7 @@ footer {
   width: 75%;
   text-align: right;
 }
+
 .user-time {
   width: 20%;
   text-align: center;
@@ -144,8 +161,10 @@ footer {
   background: rgba(0, 0, 0, 0.8);
   background-blend-mode: darken;
   position: absolute;
-  }
-.login,.save {
+}
+
+.login,
+.save {
   flex-direction: column;
   background-color: #d9d9d9;
   padding: 40px 40px 20px 40px;
@@ -156,12 +175,15 @@ footer {
   max-width: 730px;
 
 }
-.login{
-  display: none;
-}
-.save{
+
+.login {
   display: flex;
 }
+
+.save {
+  display: none;
+}
+
 .login-container input {
   font-family: "IranianSans";
   font-style: normal;
@@ -175,7 +197,9 @@ footer {
   text-align: right;
   width: 100%;
 }
-.login-button,.save-button {
+
+.login-button,
+.save-button {
   border-radius: 16px;
   background-color: #19c97f;
   padding: 12px;
