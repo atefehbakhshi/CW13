@@ -182,6 +182,13 @@ footer {
 
 .save {
   display: none;
+  
+}
+.savebtns{
+
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
 }
 
 .login-container input {
@@ -202,7 +209,7 @@ footer {
 .save-button {
   border-radius: 16px;
   background-color: #19c97f;
-  padding: 12px;
+  padding: 5px;
   color: white;
   border: none;
   font-style: normal;
@@ -210,5 +217,11 @@ footer {
   font-size: 36px;
   line-height: 56px;
   font-family: inherit;
-  width: 30%;
+  width: 140px;
+  margin-left: 8px;
+  
+}
+
+.selected-tab {
+  background-color: white;
 }
