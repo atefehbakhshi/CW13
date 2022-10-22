@@ -61,6 +61,8 @@ days.forEach((element) => {
   element.onclick = () => {
     selectedDay = element.id;
     showList();
+    const deletebtn = document.querySelectorAll("#delete");
+    deleteFunction(deletebtn, element);
   };
 });
 /// add task btn
@@ -126,3 +128,31 @@ function save(task) {
   }
 }
 
+
+
+
+
+// ----------------------------------------
+
+function deleteFunction(deletebtn, day) {
+  deletebtn.forEach((element) => {
+    element.onclick = () => {
+      let choosenTaskId = (element.parentElement.parentElement.parentElement).id
+      const items = JSON.parse(localStorage.getItem('myList'));
+      let updatedItems = [];
+      for (let i = 0; i < items.length; i++) {
+        if (items[i].day === day.id) {
+          let tasks = items[i].tasks;
+          const filteredTasks = tasks.filter(item => item.id != choosenTaskId);
+          tasks = [...filteredTasks];
+          items[i].tasks = tasks;
+          updatedItems.push(items[i])
+        } else {
+          updatedItems.push(items[i])
+        }
+      }
+      localStorage.setItem('myList', JSON.stringify(updatedItems));
+      (element.parentElement.parentElement.parentElement).style.display = 'none';
+    }
+  })
+};
