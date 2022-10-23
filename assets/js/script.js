@@ -3,17 +3,20 @@ let todoList = [];
 
 let selectedDay = "shanbe";
 
-// if user exist
-let user = localStorage.getItem("user");
-user = JSON.parse(user);
-if (user === null) {
-  document.querySelector(".login-container").style.display = "flex";
-} else {
-  document.querySelector(".login-container").style.display = "none";
-  let username = localStorage.getItem("user");
-  username = JSON.parse(username);
-  document.getElementById("hello-text").innerText = "سلام " + username;
+// check user exist
+const userExist = () => {
+  let user = localStorage.getItem("user");
+  user = JSON.parse(user);
+  if (user === null) {
+    document.querySelector(".login-container").style.display = "flex";
+  } else {
+    document.querySelector(".login-container").style.display = "none";
+    let username = localStorage.getItem("user");
+    username = JSON.parse(username);
+    document.getElementById("hello-text").innerText = "سلام " + username;
+  }
 }
+userExist();
 
 // update todo count
 const updateNumber = (todoList) => {
@@ -27,6 +30,7 @@ const updateNumber = (todoList) => {
     element.querySelector(".task-num").innerText = count;
   });
 };
+
 // show todolist
 const showList = () => {
   let localList = localStorage.getItem("myList");
@@ -73,6 +77,7 @@ const showList = () => {
 };
 
 showList();
+
 /// select days
 let days = document.querySelectorAll(".day");
 days.forEach((element) => {
@@ -153,7 +158,6 @@ function showSavePage(task) {
   document.querySelector(".save").style.display = "flex";
 }
 
-
 // delete tasks
 function deleteFunction(element) {
   let choosenTaskId = element.parentElement.parentElement.parentElement.id;
@@ -172,7 +176,6 @@ function deleteFunction(element) {
   }
   localStorage.setItem("myList", JSON.stringify(updatedItems));
   showList();
-
 }
 
 // edit tasks
@@ -216,16 +219,6 @@ function changeDayBackground(days, selectedDay) {
   background-color:white;
   border:none;
   `;
-}
-
-// change selected tasks background
-
-// days.forEach(() => {
-//   let checkboxes = document.querySelectorAll('.checkbox');
-//   checkboxes.forEach(item =>
-//     item.onclick = () => {
-//       console.log('item');
-//     })
-// })
+};
 
 
