@@ -3,7 +3,19 @@ let todoList = [];
 
 let selectedDay = "shanbe";
 
-// ------------------------  update todo count-------------
+// if user exist
+let user = localStorage.getItem("user");
+user = JSON.parse(user);
+if (user === null) {
+  document.querySelector(".login-container").style.display = "flex";
+} else {
+  document.querySelector(".login-container").style.display = "none";
+  let username = localStorage.getItem("user");
+  username = JSON.parse(username);
+  document.getElementById("hello-text").innerText = "سلام " + username;
+}
+
+// update todo count
 const updateNumber = (todoList) => {
   let days = document.querySelectorAll(".day");
   days.forEach((element) => {
@@ -15,7 +27,7 @@ const updateNumber = (todoList) => {
     element.querySelector(".task-num").innerText = count;
   });
 };
-// -------------------------  show todolist  ------------------------
+// show todolist
 const showList = () => {
   let localList = localStorage.getItem("myList");
   localList = JSON.parse(localList);
@@ -66,11 +78,14 @@ let days = document.querySelectorAll(".day");
 days.forEach((element) => {
   element.onclick = () => {
     selectedDay = element.id;
+    changeDayBackground(days, selectedDay);
     showList();
   };
 });
+/// when page loaded, saturday is selected 
+changeDayBackground(days, selectedDay);
 
-/// -----------------------  add task btn  -----------------
+/// add task btn
 const addBtn = document.querySelector("#add-btn");
 addBtn.onclick = () => {
   const task = document.querySelector("#task").value;
@@ -113,7 +128,7 @@ addBtn.onclick = () => {
   };
 };
 
-// --------------------------loginpage--------------
+// loginpage
 const loginBtn = document.querySelector("#login-btn");
 loginBtn.onclick = () => {
   const name = document.querySelector("#name").value;
@@ -126,10 +141,11 @@ loginBtn.onclick = () => {
   } else {
     document.querySelector(".login-container").style.display = "none";
     document.getElementById("hello-text").innerText = "سلام " + name;
+    localStorage.setItem("user", JSON.stringify(name));
   }
 };
 
-// --------------------------savepage--------------
+// savepage
 function showSavePage(task) {
   document.getElementById("save-text").value = task;
   document.querySelector(".login-container").style.display = "flex";
@@ -138,7 +154,7 @@ function showSavePage(task) {
 }
 
 
-// --------------------------delete tasks--------------
+// delete tasks
 function deleteFunction(element) {
   let choosenTaskId = element.parentElement.parentElement.parentElement.id;
   const items = JSON.parse(localStorage.getItem("myList"));
@@ -159,7 +175,7 @@ function deleteFunction(element) {
 
 }
 
-// --------------------------edit tasks--------------
+// edit tasks
 function editFunction(element) {
   let choosenTaskId = element.parentElement.parentElement.parentElement.id;
   let todoList = JSON.parse(localStorage.getItem("myList"));
@@ -184,3 +200,32 @@ function editFunction(element) {
     document.querySelector(".login-container").style.display = "none";
   };
 }
+
+// change selected day's background
+function changeDayBackground(days, selectedDay) {
+  days.forEach(item => {
+    item.style.cssText = `
+      background-color:#d5d5d5;
+      border: 1px solid black;`;
+    let taskNum = item.querySelector('.task-num')
+    taskNum.classList.remove('position')
+  });
+  let openTab = document.getElementById(selectedDay)
+  openTab.querySelector('.task-num').classList.add('position');
+  openTab.style.cssText = `
+  background-color:white;
+  border:none;
+  `;
+}
+
+// change selected tasks background
+
+// days.forEach(() => {
+//   let checkboxes = document.querySelectorAll('.checkbox');
+//   checkboxes.forEach(item =>
+//     item.onclick = () => {
+//       console.log('item');
+//     })
+// })
+
+
